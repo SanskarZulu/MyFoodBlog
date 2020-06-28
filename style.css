@@ -26,7 +26,8 @@ h3{
 }
 /* Style the header */
 header {
-  background-color:rgb(9, 148, 248);
+  background-color:rgb(71, 68, 68);
+  /*rgb(9, 148, 248) */
   padding: 30px;
   height: 20%;
   text-align: center;
@@ -38,7 +39,7 @@ header {
 nav {
   float: left;
   width: 20%;
-  height: 495px; /* only for demonstration, should be removed */
+  height: 497px; /* only for demonstration, should be removed */
   background:white;
   padding: 20px;
 }
@@ -56,7 +57,7 @@ article {
   width: 40%;
   background-color:black;
   color:white;
-  height: 495px; /* only for demonstration, should be removed */
+  height: 497px; /* only for demonstration, should be removed */
 }
 article2 {
   float: left;
@@ -64,7 +65,7 @@ article2 {
   width: 40%;
   background-color:black;
   color:white;
-  height: 495px; /* only for demonstration, should be removed */
+  height: 497px; /* only for demonstration, should be removed */
 }
 
 /* Clear floats after the columns */
@@ -76,13 +77,16 @@ section:after {
 
 /* Style the footer */
 footer {
-  background-color:rgb(9, 148, 248);
+  background-color:rgb(71, 68, 68);
   padding: 10px;
-  text-align: center;
+  text-align: left;
   color:black;
-  height:100px;
+  height:120px;
   border-top:#FFFFFF 2px solid;
 	
+}
+a{
+  color:black;
 }
 .circular--square {
     align-self: center;
@@ -97,9 +101,30 @@ footer {
 
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
-  nav, article {
+  nav, article, article2 {
+    width: 100%;
+    height: auto;
+  }
+  footer{
     width: 100%;
     height: auto;
   }
 }
+table{
+  font-size: small;
+  align-self: center;
+  height: 100%;
+  width: 100%;
+  margin-left: 1em;
+  align-content: center;
+  text-align: center;
+ 
+}
+
+
+
+
+
+ 
+ 
 
