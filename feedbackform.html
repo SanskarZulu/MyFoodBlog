@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- used internal css to avoid additional pages -->
+<style>
+body {
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+* {box-sizing: border-box;}
+h3{
+    color:#008CBA;
+}
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #008CBA;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: rgb(83, 203, 247);
+}
+input[type=button] {
+  background-color: #008CBA;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
+
+input[type=button]:hover {
+  background-color: rgb(83, 203, 247);
+}
+
+
+.container {
+  border-radius: 5px;
+  background-color:grey;
+  padding: 20px;
+  
+
+}
+.rating {
+  display: inline-block;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  font-size: 50px;
+}
+.icon{
+    color: gold;
+}
+.rating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.rating label:last-child {
+  position: static;
+}
+
+.rating label:nth-child(1) {
+  z-index: 5;
+}
+
+.rating label:nth-child(2) {
+  z-index: 4;
+}
+
+.rating label:nth-child(3) {
+  z-index: 3;
+}
+
+.rating label:nth-child(4) {
+  z-index: 2;
+}
+
+.rating label:nth-child(5) {
+  z-index: 1;
+}
+
+.rating label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating label .icon {
+  float: left;
+  color: transparent;
+}
+
+.rating label:last-child .icon {
+  color: #000;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+  color: #09f;
+}
+
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+  color: #000;
+  text-shadow: 0 0 5px #09f;
+}
+
+</style>
+</head>
+<body>
+<h3 align="center">Feedback Form</h3>
+
+<div class="container">
+  <form action="/action_page.php" id="myForm">
+    <label for="fname">First Name<span style="color: red;">*</span></label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    
+    <label for="lname">Middle Name</label>
+    <input type="text" id="mname" name="middlename" placeholder="Your middle name..">
+
+    <label for="lname">Last Name<span style="color: red;">*</span></label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+    <label for="email">Email Address<span style="color: red;">*</span></label>
+    <input type="text" id="email" name="email" placeholder="Your email address..">
+
+    <label for="country">Country<span style="color: red;">*</span></label>
+    <select id="country" name="country">
+      <option value="australia">India</option>
+      <option value="canada">USA</option>
+      <option value="usa">Russia</option>
+    </select>
+    <label for="userrating">Rate our blog<span style="color: red;">*</span></label>
+    <form class="rating" if="myForm">
+        <label>
+          <input type="radio" name="stars" value="1" />
+          <span class="icon">★</span>
+        </label>
+        <label>
+          <input type="radio" name="stars" value="2" />
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+        </label>
+        <label>
+          <input type="radio" name="stars" value="3" />
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+          <span class="icon">★</span>   
+        </label>
+        <label>
+          <input type="radio" name="stars" value="4" />
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+        </label>
+        <label>
+          <input type="radio" name="stars" value="5" />
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+          <span class="icon">★</span>
+        </label>
+        
+        
+      </form>
+    <br>
+    <label for="comments">Comments</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    <p style="font-size: 15px;">(NOTE: fields with <span style="color: red;">*</span> are mandatory.)</p>
+    <input type="submit" value="Submit" onclick="submit()">
+    <input type="button" value="Close" onclick="location.href='index.html';">
+    
+  </form>
+  <script>
+    function submit() {
+      /*Put all the data posting code here*/
+     document.getElementById("myForm").reset();
+     document.getElementById("subject").value = "";
+    }
+  </script>
+</div>
+</body>
+</html>
