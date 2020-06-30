@@ -6,17 +6,30 @@ body{
     background-color: black;
     height:100%;
     width: 100%;
+    margin: 0;
+  
     
 }
 img{
     alt:"Sheer Khurma" ;
     color: white;
     align-self:center;
-    margin-left: 33%;
-    margin-right: 30%;
+    
     width:33%;
     height: 33%;
     
+}
+/*for single image foods*/
+.img3{
+  
+  alt:"Sheer Khurma" ;
+  color: white;
+  align-self:center;
+  margin:0;
+  margin-left: 33%;
+  margin-right: 30%;  
+  width:33%;
+  height: 33%;
 }
   
 
@@ -34,8 +47,8 @@ footer {
   padding: 10px;
   text-align: left;
   color:black;
-  height:120px;
-  border-top:#FFFFFF 2px solid;
+  height:auto;
+  
 	
 }
 
@@ -49,9 +62,7 @@ table{
   text-align: center;
  
 }
-b1{
-    margin-left: 38%;
-}
+
 a{
   text-decoration: none;
   color: rgb(20, 142, 194);
@@ -106,8 +117,8 @@ a{
 
 
 .button2 {
-  background-color: white; 
-  color: black; 
+  background-color: black; 
+  color: white; 
   border: 2px solid #008CBA;
 }
 
