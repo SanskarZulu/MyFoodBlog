@@ -109,6 +109,8 @@ footer {
   text-align: left;
   color:black;
   height:100%;
+  margin-right: 0;
+  width:100%;
   
   	
 }
@@ -125,6 +127,7 @@ a{
   height: 50%;
   width: 42%;
 }
+
 
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
@@ -147,6 +150,9 @@ table{
   margin: 1em;
   align-content: center;
   text-align: center;
+  padding-right: 5%;
+  padding-left: 4%;
+ 
  
 }
 a{
@@ -156,7 +162,17 @@ a{
 ol{
   color: rgb(20, 142, 194);
 }
-
+.about{
+  text-align: justify;
+  font-size: 15px;
+  padding-right: 5%;
+  
+}
+.joinus{
+  padding-right: 5%;
+  text-align: left;
+  margin-right: 5%;
+}
 
 
 

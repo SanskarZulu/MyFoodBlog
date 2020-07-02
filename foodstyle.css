@@ -62,7 +62,20 @@ table{
   margin: 1em;
   align-content: center;
   text-align: center;
+  padding-right: 5%;
+  padding-left: 4%;
  
+}
+.about{
+  text-align: justify;
+  font-size: 15px;
+  padding-right: 5%;
+  
+}
+.joinus{
+  padding-right: 5%;
+  text-align: left;
+  margin-right: 5%;
 }
 
 a{
@@ -222,3 +235,4 @@ a{
   }
 
 }
+
