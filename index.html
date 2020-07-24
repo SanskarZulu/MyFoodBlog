@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
-<body>
+<body id="Body">
 
 <header>
   <h2 align="Center">My blog (<a href="https://www.instagram.com/oshnomnomnom/">oshnomnomnom</a> )<h1>by Oshi Chopra & Sanskar Sharma</h1><h1>created by Sanskar Sharma (0120180381)</h1></h2>
@@ -16,8 +16,9 @@
 </header>
 
 
-
+<div id="Mydiv">
 <section>
+  
   <nav>
     <h4><span style="color: white;">Food Gallery</span></h4>
     <ol>
@@ -58,7 +59,101 @@
   </article2>
 
 </section>
+</div>
+<div id="Mydiv2"  style="display: none;">
+  <h3 align="center">Feedback Form</h3>
 
+  <div class="container">
+    <form action="/new" method="post" id="myForm" >
+      <label for="fname">First Name<span style="color: red;">*</span></label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      
+      <label for="lname">Middle Name</label>
+      <input type="text" id="mname" name="middlename" placeholder="Your middle name..">
+  
+      <label for="lname">Last Name<span style="color: red;">*</span></label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+  
+      <label for="email">Email Address<span style="color: red;">*</span></label>
+      <input type="text" id="email" name="email" placeholder="Your email address..">
+  
+      <label for="country">Country<span style="color: red;">*</span></label>
+      <select id="country" name="country">
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="Russia">Russia</option>
+      </select>
+      <label for="userrating">Rate our blog<span style="color: red;">*</span></label>
+      <form class="rating" action="/new" method="post" id="myForm" >
+          <label>
+            <input type="radio" id="rating"name="stars" value="1" />
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" id="rating"name="stars" value="2" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" id="rating"name="stars" value="3" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>   
+          </label>
+          <label>
+            <input type="radio" id="rating"name="stars" value="4" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio"id="rating" name="stars" value="5" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+          
+          
+        </form>
+      <br>
+      <label for="comments">Comments</label>
+      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      <p style="font-size: 15px;">(NOTE: fields with <span style="color: red;">*</span> are mandatory.)</p>
+      <input type="submit" value="Submit" onclick="submit()">
+      <input type="button" value="Close" onclick="restore()">
+      <input type="button" value="Details" onclick="showdetails()">
+      
+    </form>
+    
+   <!--end of container division--> 
+  </div> 
+  <!--end of feedback form division-->
+</div>
+<div id="Feedbackdata" style="display: none;">
+  <br>
+  <h7>Feedbacks</h7><br>
+  <p1>We value your concerns</p1>
+  <br><br>
+  <table class="feeddata">
+    <tr>
+      <th>S. no</th>
+      <th>First name</th>
+      <th>Middle name</th>
+      <th>Last name</th>
+      <th>E-mail</th>
+      <th>Country</th>
+      <th>User-Rating</th>
+      <th>Feedback</th>
+    </tr>
+    
+      <tbody id="tbody"></tbody>
+    
+ </table>
+ <br>
+</div>
 <footer class="f1">
   <table>
     <tr>
@@ -70,7 +165,7 @@
       <td style="text-align: left;"><a href="mailto:sksharma@mitaoe.ac.in">Email us</a></td>
       <td rowspan="2"> <span class="about">We are a pair of two food enthusiasts who loves to cook and more importantly with will to try the ample of food varieties out there. We believe that food has an undeniable linkage with the geographies, so we look forward to travelling places and discover their living and especially the food they live by and live for. We are looking for such enthusiasts and will encourage any kind of collaborations they can offer. We believe in a never ending and an underestimated love for food, which is true in all possible realms of life. 
         <br><b>"Divided we'll fall but together we can spread the food love to this beautiful world."</b></span></td>
-      <td class="joinus"style="text-align: left;"><a href="feedbackform.html" >Feedback</a></td>
+      <td class="joinus"style="text-align: left;"><button class="fdback"  onclick="Dispmode()">Feedback</button></td>
     </tr>
     <tr>
       <td style="text-align: left;"><a href="tel:6261614589">Call us</a></td>
@@ -83,5 +178,80 @@
     </tr>
   </table> 
 </footer>
+<script>
+  var x = 0;
+      var array = Array();
+      var i=0;
+      
+      function submit() {
+        /*Put all the data posting code here*/
+         
+          var Rowentry={};
+          Rowentry["S.No"] = x+1;
+          Rowentry["First name"]= document.getElementById("fname").value;
+          Rowentry["Middle name"]= document.getElementById("mname").value;
+          Rowentry["Last name"]= document.getElementById("lname").value;
+          Rowentry["E-mail"]= document.getElementById("email").value;
+          Rowentry["Country"]= document.getElementById("country").value;
+          Rowentry["User-Rating"]= document.getElementById("rating").value;
+          Rowentry["Feedback"]= document.getElementById("subject").value;
+          //alert("Element: " + array[x] + " Added at index " + x);
+          x++;
+          //document.getElementById("text1").value = "";
+          array.push(Rowentry);
+          delete Rowentry;
+         
+          document.getElementById("myForm").reset();
+          document.getElementById("subject").value = "";
+      }
+      
+      function showdetails(){
+       document.getElementById("Body").style.alignContent="center"; 
+     document.getElementById("Mydiv2").style.display = "none";
+     document.getElementById("Feedbackdata").style.display = "inline-block";
+     document.getElementById("Mydiv").style.display = "none";
+     
+     var tbody = document.getElementById('tbody');
+    //for (var i = 0; i < array.length; i++) {
+      
+      var tr = "<tr>";
+
+       /* Verification to add the last decimal 0 */
+       /*if (obj[i].value.toString().substring(obj[i].value.toString().indexOf('.'), obj[i].value.toString().length) < 2) 
+       obj[i].value += "0";*/
+      
+       /* Must not forget the $ sign */
+       tr += "<td>" + array[i]["S.No"] + "</td>" 
+       + "<td>" + array[i]["First name"].toString() + "</td>"
+       + "<td>" + array[i]["Middle name"].toString() + "</td>"
+       + "<td>" + array[i]["Last name"].toString() + "</td>"
+       + "<td>" + array[i]["E-mail"].toString() + "</td>"
+       + "<td>" + array[i]["Country"].toString() + "</td>"
+       + "<td>" + array[i]["User-Rating"].toString() + "</td>"
+       + "<td>" + array[i]["Feedback"].toString() + "</td>"
+       "</tr>";
+       ++i;
+       /* We add the table row to the table body */
+       tbody.innerHTML += tr;
+     // }
+    }
+
+  function Dispmode(){
+    
+    document.getElementById("Mydiv").style.display = "none";
+    document.getElementById("Mydiv2").style.display = "inline-block";
+    document.getElementById("Feedbackdata").style.display = "none";
+    
+    
+  }
+  function restore(){
+    
+    document.getElementById("Mydiv").style.display = "inline-block";
+    document.getElementById("Mydiv2").style.display = "none";
+    document.getElementById("Feedbackdata").style.display = "none";
+    
+  }
+  
+</script>
 </body>
 </html>

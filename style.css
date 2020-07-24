@@ -5,6 +5,7 @@ body {
   
   margin:0;
   background-color: black;
+
   
   
   
@@ -173,10 +174,182 @@ ol{
   text-align: left;
   margin-right: 5%;
 }
+.Mydiv2{
+  height:100%;
+  width:100%;
+  background-color: black;
+}
+.fdback{
+  text-decoration: none;
+  
+  color:rgb(20, 142, 194);
+  background-color:rgb(71, 68, 68) ;
+  border: none;
+  font-size: medium;
+  text-align: left;
+  padding-left: 0em;
+  
+
+}
+/*Division for feedback data*/
+#Feedbackdata{
+  height:100%;
+  width:100%;
+  text-align: center;
+ 
+  
+  
+}
+/*Table for feedback data*/  
+
+.feeddata{
+ 
+  height: auto;
+  width: 80%;
+  color:black;
+  background-color: white;
+  margin: auto;
+  
+  
+}
+h7{
+  color: #008CBA;
+  font-size: xx-large;
+  font: outline;
+
+}
+p1{
+  text-align: center;
+  color: white;
+}
+/*Heading of feedback table.*/
+.feedhead{
+  color: black;
+  font-weight: bolder;
+}
 
 
+/*FEEDBACK FORM STYLE*/
+body {
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+* {box-sizing: border-box;}
+h3{
+  color:#008CBA;
+}
+input[type=text], select, textarea {
+width: 100%;
+padding: 12px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+margin-top: 6px;
+margin-bottom: 16px;
+resize: vertical;
+}
+
+input[type=submit] {
+background-color: #008CBA;
+color: white;
+padding: 12px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+input[type=submit]:hover {
+background-color: rgb(83, 203, 247);
+}
+input[type=button] {
+background-color: #008CBA;
+color: white;
+padding: 12px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+
+}
+
+input[type=button]:hover {
+background-color: rgb(83, 203, 247);
+}
 
 
+.container {
+border-radius: 5px;
+background-color:grey;
+padding: 20px;
+
+
+}
+.rating {
+display: inline-block;
+position: relative;
+height: 50px;
+line-height: 50px;
+font-size: 50px;
+}
+.icon{
+  color: gold;
+}
+.rating label {
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+cursor: pointer;
+}
+
+.rating label:last-child {
+position: static;
+}
+
+.rating label:nth-child(1) {
+z-index: 5;
+}
+
+.rating label:nth-child(2) {
+z-index: 4;
+}
+
+.rating label:nth-child(3) {
+z-index: 3;
+}
+
+.rating label:nth-child(4) {
+z-index: 2;
+}
+
+.rating label:nth-child(5) {
+z-index: 1;
+}
+
+.rating label input {
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+}
+
+.rating label .icon {
+float: left;
+color: transparent;
+}
+
+.rating label:last-child .icon {
+color: #000;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+color: #09f;
+}
+
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+color: #000;
+text-shadow: 0 0 5px #09f;
+}
  
  
 
