@@ -66,27 +66,27 @@
   <div class="container">
     <form action="/new" method="post" id="myForm" >
       <label for="fname">First Name<span style="color: red;">*</span></label>
-      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
       
       <label for="lname">Middle Name</label>
       <input type="text" id="mname" name="middlename" placeholder="Your middle name..">
   
       <label for="lname">Last Name<span style="color: red;">*</span></label>
-      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
   
       <label for="email">Email Address<span style="color: red;">*</span></label>
-      <input type="text" id="email" name="email" placeholder="Your email address..">
+      <input type="email" id="email" name="email" placeholder="Your email address.." required>
   
-      <label for="country">Country<span style="color: red;">*</span></label>
+      <label for="country">Country</label>
       <select id="country" name="country">
         <option value="India">India</option>
         <option value="USA">USA</option>
         <option value="Russia">Russia</option>
       </select>
-      <label for="userrating">Rate our blog<span style="color: red;">*</span></label>
-      <form class="rating" action="/new" method="post" id="myForm" >
+      <label for="userrating">Rate our blog</label>
+      <form class="rating" action="/new" method="post" id="myForm" required >
           <label>
-            <input type="radio" id="rating"name="stars" value="1" />
+            <input type="radio" id="rating"name="stars" value="1"/>
             <span class="icon">★</span>
           </label>
           <label>
@@ -108,14 +108,14 @@
             <span class="icon">★</span>
           </label>
           <label>
-            <input type="radio"id="rating" name="stars" value="5" />
+            <input type="radio"id="rating" name="stars" value="5"  />
             <span class="icon">★</span>
             <span class="icon">★</span>
             <span class="icon">★</span>
             <span class="icon">★</span>
             <span class="icon">★</span>
           </label>
-          
+           
           
         </form>
       <br>
@@ -185,22 +185,38 @@
       
       function submit() {
         /*Put all the data posting code here*/
-         
-          var Rowentry={};
-          Rowentry["S.No"] = x+1;
-          Rowentry["First name"]= document.getElementById("fname").value;
-          Rowentry["Middle name"]= document.getElementById("mname").value;
-          Rowentry["Last name"]= document.getElementById("lname").value;
-          Rowentry["E-mail"]= document.getElementById("email").value;
-          Rowentry["Country"]= document.getElementById("country").value;
-          Rowentry["User-Rating"]= document.getElementById("rating").value;
-          Rowentry["Feedback"]= document.getElementById("subject").value;
-          //alert("Element: " + array[x] + " Added at index " + x);
-          x++;
-          //document.getElementById("text1").value = "";
-          array.push(Rowentry);
-          delete Rowentry;
-         
+          var f=document.getElementById("fname");
+          var l=document.getElementById("lname");
+          var e=document.getElementById("email");
+          if(f.checkValidity() && l.checkValidity() && e.checkValidity()){
+            var Rowentry={};
+            Rowentry["S.No"] = x+1;
+            Rowentry["First name"]= document.getElementById("fname").value;
+            Rowentry["Middle name"]= document.getElementById("mname").value;
+            Rowentry["Last name"]= document.getElementById("lname").value;
+            Rowentry["E-mail"]= document.getElementById("email").value;
+            Rowentry["Country"]= document.getElementById("country").value;
+            if (document.getElementById('rating').checked) {
+              Rowentry["User-Rating"] = document.getElementById('rating').value;
+            }
+            else{
+              Rowentry["User-Rating"]="5";
+            }
+            Rowentry["Feedback"]= document.getElementById("subject").value;
+            //alert("Element: " + array[x] + " Added at index " + x);
+            x++;
+            //document.getElementById("text1").value = "";
+            array.push(Rowentry);
+            delete Rowentry;
+          }else{
+            if(!e.checkValidity() && f.checkValidity() && l.checkValidity()){
+              alert("Enter valid email address!");
+            }
+            else{
+              alert("Fields with * are mandatory!Try agin.");
+            }
+            
+          }
           document.getElementById("myForm").reset();
           document.getElementById("subject").value = "";
       }

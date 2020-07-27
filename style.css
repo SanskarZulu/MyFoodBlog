@@ -196,6 +196,7 @@ ol{
   height:100%;
   width:100%;
   text-align: center;
+  padding:10px;
  
   
   
@@ -205,7 +206,7 @@ ol{
 .feeddata{
  
   height: auto;
-  width: 80%;
+  width: auto;
   color:black;
   background-color: white;
   margin: auto;
@@ -248,6 +249,16 @@ margin-top: 6px;
 margin-bottom: 16px;
 resize: vertical;
 }
+input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  }
 
 input[type=submit] {
 background-color: #008CBA;
