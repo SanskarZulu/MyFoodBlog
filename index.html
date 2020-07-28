@@ -85,39 +85,33 @@
       </select>
       <label for="userrating">Rate our blog</label>
       <form class="rating" action="/new" method="post" id="myForm" required >
-          <label>
-            <input type="radio" id="rating"name="stars" value="1"/>
+          
+            <input type="radio" id="rating1"name="stars" value="1" onclick="checked">
             <span class="icon">★</span>
-          </label>
-          <label>
-            <input type="radio" id="rating"name="stars" value="2" />
+          
+            <input type="radio" id="rating2"name="stars" value="2" onclick="checked">
             <span class="icon">★</span>
             <span class="icon">★</span>
-          </label>
-          <label>
-            <input type="radio" id="rating"name="stars" value="3" />
+          
+            <input type="radio" id="rating3"name="stars" value="3" onclick="checked">
             <span class="icon">★</span>
             <span class="icon">★</span>
             <span class="icon">★</span>   
-          </label>
-          <label>
-            <input type="radio" id="rating"name="stars" value="4" />
-            <span class="icon">★</span>
-            <span class="icon">★</span>
-            <span class="icon">★</span>
-            <span class="icon">★</span>
-          </label>
-          <label>
-            <input type="radio"id="rating" name="stars" value="5"  />
-            <span class="icon">★</span>
-            <span class="icon">★</span>
-            <span class="icon">★</span>
-            <span class="icon">★</span>
-            <span class="icon">★</span>
-          </label>
-           
           
-        </form>
+            <input type="radio" id="rating4"name="stars" value="4" onclick="checked">
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          
+            <input type="radio"id="rating5" name="stars" value="5" onclick="checked" >
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+    
+      </form>
       <br>
       <label for="comments">Comments</label>
       <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
@@ -196,11 +190,30 @@
             Rowentry["Last name"]= document.getElementById("lname").value;
             Rowentry["E-mail"]= document.getElementById("email").value;
             Rowentry["Country"]= document.getElementById("country").value;
-            if (document.getElementById('rating').checked) {
-              Rowentry["User-Rating"] = document.getElementById('rating').value;
+            //if (document.getElementById('rating').checked) {
+            //  Rowentry["User-Rating"] = document.getElementById('rating1').value;
+            //}
+            //else{
+            //  Rowentry["User-Rating"]="5";
+            //}
+            if(document.getElementById('rating1').checked)
+            {
+              Rowentry["User-Rating"] = document.getElementById('rating1').value;
+            }
+            else if(document.getElementById('rating2').checked)
+            {
+              Rowentry["User-Rating"] = document.getElementById('rating2').value;
+            }
+            else if(document.getElementById('rating3').checked)
+            {
+              Rowentry["User-Rating"] = document.getElementById('rating3').value;
+            }
+            else if(document.getElementById('rating4').checked)
+            {
+              Rowentry["User-Rating"] = document.getElementById('rating4').value;
             }
             else{
-              Rowentry["User-Rating"]="5";
+              Rowentry["User-Rating"] = document.getElementById('rating5').value;
             }
             Rowentry["Feedback"]= document.getElementById("subject").value;
             //alert("Element: " + array[x] + " Added at index " + x);
