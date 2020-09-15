@@ -1,4 +1,43 @@
+<!--Inlcuding php for MySql connectivity-->
+<?php
+      //
+      require_once 'includes\connection.php';
+      if($_SERVER["REQUEST_METHOD"]=="POST"){
 
+        $prep = $db->prepare ("INSERT INTO formtable (entry_id,firstname,middlename,lastname,email,country,rating,comments) VALUES ('0',?,?,?,?,?,?,?)");
+        
+        $prep->bind_param("sssssss",$firstname,$middlename,$lastname,$email,$country,$rating,$comments);
+        
+        $firstname =$_POST["fname"];
+        $middlename=$_POST["mname"];
+        $lastname=$_POST["lname"];
+        $email=$_POST["email"];
+        $country=$_POST["country"];
+
+        if(isset($_POST["rating1"])){
+          $rating=$_POST["rating1"];
+        }
+        elseif(isset($_POST["rating2"])){
+          $rating=$_POST["rating2"];
+        }
+        elseif(isset($_POST["rating3"])){
+          $rating=$_POST["rating3"];
+        }
+        elseif(isset($_POST["rating4"])){
+          $rating=$_POST["rating4"];
+        }
+        else{
+          $rating=$_POST["rating5"];
+        }
+        
+
+      }
+
+      $prep->execute();
+      $result = $db->insert_id;
+      $prep->close();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,7 +103,7 @@
   <h3 align="center">Feedback Form</h3>
 
   <div class="container">
-    <form action="/new" method="post" id="myForm" >
+    <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post" id="myForm" enctype="multipart/form-data">
       <label for="fname">First Name<span style="color: red;">*</span></label>
       <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
       
@@ -84,7 +123,7 @@
         <option value="Russia">Russia</option>
       </select>
       <label for="userrating">Rate our blog</label>
-      <form class="rating" action="/new" method="post" id="myForm" required >
+      <form class="rating" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post"enctype="multipart/form-data" id="myForm" required >
           
             <input type="radio" id="rating1"name="stars" value="1" onclick="checked">
             <span class="icon">★</span>
@@ -116,10 +155,13 @@
       <label for="comments">Comments</label>
       <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
       <p style="font-size: 15px;">(NOTE: fields with <span style="color: red;">*</span> are mandatory.)</p>
-      <input type="submit" value="Submit" onclick="submit()">
+      <input type="submit" name="execute" id="execute"value="Submit" onclick="submit()">
       <input type="button" value="Close" onclick="restore()">
       <input type="button" value="Details" onclick="showdetails()">
       
+      
+
+
     </form>
     
    <!--end of container division--> 
@@ -147,6 +189,13 @@
     
  </table>
  <br>
+
+ <?php 
+ if (isset($_POST['execute'])){
+   echo $result ;
+   }  
+ ?>
+
 </div>
 <footer class="f1">
   <table>
@@ -172,6 +221,7 @@
     </tr>
   </table> 
 </footer>
+
 <script>
   var x = 0;
       var array = Array();
@@ -282,5 +332,6 @@
   }
   
 </script>
+
 </body>
 </html>
